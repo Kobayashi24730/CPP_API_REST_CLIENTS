@@ -1,0 +1,19 @@
+[
+  {
+    "file": "main.cpp",
+    "arguments": [
+      "clang++",
+      "main.cpp",
+      "-I",
+      "Crow/include",
+      "-I",
+      "/data/data/com.termux/files/usr/include",
+      "-pthread",
+      "-std=c++20",
+      "-o",
+      "api"
+    ],
+    "directory": "/data/data/com.termux/files/home/CPP_API_REST_CLIENTS",
+    "output": "api"
+  }
+]
