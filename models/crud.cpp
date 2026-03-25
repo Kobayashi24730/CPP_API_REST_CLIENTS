@@ -31,11 +31,12 @@ std::string deletar(std::string nome, std::string email) {
   }
 }
 
-std::string update(std::strign nome, int age, std::string email) {
+std::string update(std::string nome, int age, std::string email) {
   try {
     pqxx::connection conn = conectar();
     pqxx::work txn(conn);
-    txn.exec();
+    conn.prepare("up", "UPDATE cpp_database INTO nome = $1, age = $2 WHERE email = $3");
+    txn.exec_prepared("up", nome, age, email);
     txn.commit();
     return "Parametro editados com sucesso!!";
   } catch (const std::exception &e) {
@@ -60,3 +61,5 @@ std::string listar() {
     return e.what();
   }
 }
+
+
